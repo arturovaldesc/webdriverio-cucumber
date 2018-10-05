@@ -1,17 +1,13 @@
-Feature: Test draggable elements
-    As a developer
-    I want to be able to test a given draggable element
+@test
+Feature: Drag and Drop
+    As a user I want to be able to drag the box into the drop zone
 
-    Background:
-        Given I open the site "/"
-        And   I have a screen that is 1024 by 768 pixels
-        When  I scroll to element "#draggable"
-        Then  I expect that element "#draggable" is positioned at 42px on the x axis
-        And   I expect that element "#draggable" is positioned at 130px on the y axis
-        And   I expect that element "#droppable" is positioned at 130px on the y axis
+    Background: Go to demo app page and resize window to adjust the screen.
+        Given I open the url "/"
+        And the title is "DEMO APP"
+        #When I have maximized the window
 
-    Scenario: Drag to dropzone
-        When  I drag element "#draggable" to element "#droppable"
-        Then  I expect that element "#droppable" contains the text "Dropped!"
-        And   I expect that element "#draggable" is not positioned at 42px on the x axis
-        And   I expect that element "#draggable" is positioned at 180px on the y axis
+    Scenario: Drag the small square into the drop zone.
+        Given I expect that element "#droppable" matches the text "Dropzone"
+        When I drag element "#draggable" to element "#droppable"
+        Then I expect that element "#droppable" matches the text "Dropped!"

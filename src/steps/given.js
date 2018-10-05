@@ -18,6 +18,7 @@ import isEnabled from '../support/check/isEnabled';
 import isVisible from '../support/check/isVisible';
 import openWebsite from '../support/action/openWebsite';
 import resizeScreenSize from '../support/action/resizeScreenSize';
+import maximizeWindow from '../support/action/maximizeWindow';
 
 const { Given } = require('cucumber');
 
@@ -126,3 +127,8 @@ Given(
     /^a (alertbox|confirmbox|prompt) is( not)* opened$/,
     checkModal
 );
+
+Given(
+    /^I have maximized the window$/,
+    maximizeWindow
+)
